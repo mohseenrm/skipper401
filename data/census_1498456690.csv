@@ -1,0 +1,4 @@
+uuid,compensation_type,salary,hourly_rate,last_name,first_name,email,phone_number,ssn,date_of_birth,hire_date,termination_date,employment_is_active,address,address_line2,city,state,zip,marital_status,contribution_rate_pct,match_rate_pct,risk_setting
+835a60cb-6d0e-49e8-83fb-9dd3c2b573da,salary,60000,,Leopold,"Butterknuckle, esq",leopoldbutterknuckle@gmail.com,6317221469,111111111,1946-06-14,2015-01-29,2016-10-07,false,1111 Butterknuckle St,,San Francisco,CA,11111,married,6,4,1
+d75aeee6-e916-45c6-8e61-797ee5ac13cf,hourly,,50.0,"Nguyen, esq",Jenny,jennynguyen@gmail.com,8732817822,222222222,1947-08-12,2019-01-01,,true,1945 Aspen Court,,Cambridge,MA,2138,single,4,4,2
+851889a4-8d9a-404e-85ca-f65758b7b45a,salary,70000,,Sawaya,Paul,paulsawaya@gmail.com,4155675748,333333333,1988-08-27,2015-05-15,,true,1816 Ridge Road,,Wichita,KS,67202,single,10,4,3
