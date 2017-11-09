@@ -66,12 +66,9 @@ const printPhaseOneResults = phaseOneResults => {
 	phaseOneResults.map(result => {
 		console.log(`${result.last_name}, ${result.first_name} | contribution: $${result.employee_contribution}`);
 	});
-	console.log('\n\n');
 };
 
 module.exports = () => {
-	console.log('phase one');
-
 	// reading payroll and census file
 	const promises = [];
 
