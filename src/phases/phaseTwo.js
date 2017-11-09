@@ -1,3 +1,3 @@
-module.exports = () => {
-	console.log('phase two');
+module.exports = (data) => {
+	console.log('phase two: ', data);
 };

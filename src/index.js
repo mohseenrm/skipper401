@@ -1,4 +1,5 @@
 const path = require('path');
+const sequence = require('promise-sequence');
 
 const {
 	phaseOne,
@@ -7,9 +8,11 @@ const {
 } = require('./phases');
 
 const runner = () => {
-	phaseOne();
-	phaseTwo();
-	phaseThree();
+	// sequencing promises from each phase
+	return Promise.resolve(phaseOne())
+		.then(data => phaseTwo(data))
+		.then(data => phaseThree())
+		.catch(err => console.log(err));
 };
 
 runner();

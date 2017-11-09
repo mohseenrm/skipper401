@@ -43,6 +43,7 @@ const filterParsedData = parsedData => {
 					record.second_name === censusData[person].second_name
 				)
 			);
+
 			// add to result
 			filteredData.push({
 				contribution_rate_pct: censusData[person].contribution_rate_pct,
@@ -56,6 +57,16 @@ const filterParsedData = parsedData => {
 	}
 
 	return filteredData;
+};
+
+const calculateContribution = (biWeeklyPay, percentage) => (biWeeklyPay * percentage) / 100; 
+
+const printPhaseOneResults = phaseOneResults => {
+	console.log('== Phase One Results =====================');
+	phaseOneResults.map(result => {
+		console.log(`${result.last_name}, ${result.first_name} | contribution: $${result.employee_contribution}`);
+	});
+	console.log('\n\n');
 };
 
 module.exports = () => {
@@ -73,9 +84,43 @@ module.exports = () => {
 		parseCsv(censusPath)
 			.catch(err => console.log(err))
 	);
+
 	// recieve parsed data
 	return Promise.all(promises).then(parsedData => {
 		const filteredData = filterParsedData(parsedData);
-		console.log(filteredData);
+
+		const results = filteredData.map((data) => {
+			// average of 26.0745 bi weekly pay periods in a year
+			// assuming annual salary
+			// adding new data to filteredData
+			if (data.salary) {
+				return Object.assign(
+					{},
+					data,
+					{
+						bi_weekly_pay: (parseFloat(data.salary) / parseFloat(26.0745)),
+						employee_contribution: calculateContribution(
+							(parseFloat(data.salary) / parseFloat(26.0745)),
+							parseFloat(data.contribution_rate_pct)
+						)
+					},
+				);
+			} else {
+				return Object.assign(
+						{},
+						data,
+						{
+							bi_weekly_pay: parseFloat(data.gross),
+							employee_contribution: calculateContribution(
+								parseFloat(data.gross),
+								parseFloat(data.contribution_rate_pct)
+							) 
+						},
+					);
+			}
+		});
+
+		printPhaseOneResults(results);
+		return results;
 	});
 };
