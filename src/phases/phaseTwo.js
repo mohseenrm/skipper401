@@ -1,6 +1,7 @@
 module.exports = (data) => {
 	const phaseTwoResults = calculateEmployerMatch(data);
 	printPhaseTwoResults(phaseTwoResults);
+	return phaseTwoResults;
 };
 
 const calculateEmployerMatch = dataset => {
@@ -15,9 +16,12 @@ const calculateEmployerMatch = dataset => {
 };
 
 const printPhaseTwoResults = data => {
+	let total = 0;
 	console.log('== Phase Two Results =======================================');
 	data.map(result => {
 		console.log(`${result.last_name}, ${result.first_name} | employer contribution: $${result.employer_contribution}`);
+		total += result.employer_contribution;
 	});
+	console.log(`Total contribution by employer: $${total}`);
 	console.log('');
 };
