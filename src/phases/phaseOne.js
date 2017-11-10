@@ -62,10 +62,11 @@ const filterParsedData = parsedData => {
 const calculateContribution = (biWeeklyPay, percentage) => (biWeeklyPay * percentage) / 100; 
 
 const printPhaseOneResults = phaseOneResults => {
-	console.log('== Phase One Results =====================');
+	console.log('== Phase One Results =======================================');
 	phaseOneResults.map(result => {
-		console.log(`${result.last_name}, ${result.first_name} | contribution: $${result.employee_contribution}`);
+		console.log(`${result.last_name}, ${result.first_name} | employee contribution: $${result.employee_contribution}`);
 	});
+	console.log('');
 };
 
 module.exports = () => {
