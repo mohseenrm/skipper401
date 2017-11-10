@@ -1,11 +1,11 @@
 /* Compute employer contribution */
 const calculateEmployerMatch = dataset => {
 	return dataset.map(data => {
-		const matchPercentage = parseFloat(data.match_rate_pct) / 100;
+		const matchPercentage = (parseFloat(data.match_rate_pct) || 0) / 100;
 		return Object.assign(
 			{},
 			data,
-			{ employer_contribution: data.bi_weekly_pay * matchPercentage },
+			{ employer_contribution: (parseFloat(data.bi_weekly_pay) || 0) * matchPercentage },
 		);
 	});
 };
@@ -22,8 +22,13 @@ const printPhaseTwoResults = data => {
 };
 
 /* Main Phase 2 Script, recieve data from previous phase */
-module.exports = (data) => {
+const phaseTwo = (data) => {
 	const phaseTwoResults = calculateEmployerMatch(data);
 	printPhaseTwoResults(phaseTwoResults);
 	return phaseTwoResults;
+};
+
+module.exports = {
+	calculateEmployerMatch,
+	phaseTwo,
 };

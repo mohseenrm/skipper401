@@ -83,7 +83,7 @@ const printPhaseThreeResults = phaseThreeResults => {
 };
 
 /* Phase Three Script, data is being piped from previous phases */
-module.exports = (data) => {
+const phaseThree = (data) => {
 	let promises = [];
 
 	promises.push(
@@ -101,6 +101,7 @@ module.exports = (data) => {
 		/* Filter, Sort and Organize data for calculating portfolio */
 		const filteredRiskData = filterRiskData(riskData);
 		const filteredSymbolData = filterSymbolData(symbolData);
+		console.log(filteredRiskData);
 		const sortedRiskData = sortRiskData(filteredRiskData);
 
 		const portfolioData = data.map(record => {
@@ -134,4 +135,9 @@ module.exports = (data) => {
 
 		printPhaseThreeResults(phaseThreeResults);
 	});
+};
+
+module.exports = {
+	phaseThree,
+	sortRiskData,
 };

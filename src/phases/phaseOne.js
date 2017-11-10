@@ -60,14 +60,16 @@ const filterParsedData = parsedData => {
 	return filteredData;
 };
 
-const calculateContribution = (biWeeklyPay, percentage) => (biWeeklyPay * percentage) / 100;
+const calculateContribution = (biWeeklyPay = 0, percentage = 0) => ((parseFloat(biWeeklyPay) * parseFloat(percentage)) / 100) || 0;
 
 /* Pretty print results */
 const printPhaseOneResults = phaseOneResults => {
 	console.log('== Phase One Results =======================================\n');
+
 	phaseOneResults.map(result => {
 		console.log(`${result.last_name}, ${result.first_name} | employee contribution: $${result.employee_contribution}`);
 	});
+
 	console.log('');
 };
 
@@ -132,4 +134,4 @@ const phaseOne = () => {
 module.exports = {
 	calculateContribution,
 	phaseOne,
-}
+};

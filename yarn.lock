@@ -14,13 +14,37 @@ assertion-error@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.0.2.tgz#13ca515d86206da0bac66e834dd397d87581094c"
 
-babel-code-frame@^6.26.0:
+babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
   dependencies:
     chalk "^1.1.3"
     esutils "^2.0.2"
     js-tokens "^3.0.2"
+
+babel-core@6.25.0:
+  version "6.25.0"
+  resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.25.0.tgz#7dd42b0463c742e9d5296deb3ec67a9322dad729"
+  dependencies:
+    babel-code-frame "^6.22.0"
+    babel-generator "^6.25.0"
+    babel-helpers "^6.24.1"
+    babel-messages "^6.23.0"
+    babel-register "^6.24.1"
+    babel-runtime "^6.22.0"
+    babel-template "^6.25.0"
+    babel-traverse "^6.25.0"
+    babel-types "^6.25.0"
+    babylon "^6.17.2"
+    convert-source-map "^1.1.0"
+    debug "^2.1.1"
+    json5 "^0.5.0"
+    lodash "^4.2.0"
+    minimatch "^3.0.2"
+    path-is-absolute "^1.0.0"
+    private "^0.1.6"
+    slash "^1.0.0"
+    source-map "^0.5.0"
 
 babel-core@^6.26.0:
   version "6.26.0"
@@ -46,7 +70,7 @@ babel-core@^6.26.0:
     slash "^1.0.0"
     source-map "^0.5.6"
 
-babel-generator@^6.26.0:
+babel-generator@^6.25.0, babel-generator@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.26.0.tgz#ac1ae20070b79f6e3ca1d3269613053774f20dc5"
   dependencies:
@@ -356,7 +380,7 @@ babel-preset-es2015@^6.24.1:
     babel-plugin-transform-es2015-unicode-regex "^6.24.1"
     babel-plugin-transform-regenerator "^6.24.1"
 
-babel-register@^6.26.0:
+babel-register@^6.24.1, babel-register@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-register/-/babel-register-6.26.0.tgz#6ed021173e2fcb486d7acb45c6009a856f647071"
   dependencies:
@@ -375,7 +399,7 @@ babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.11.0"
 
-babel-template@^6.24.1, babel-template@^6.26.0:
+babel-template@^6.24.1, babel-template@^6.25.0, babel-template@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-template/-/babel-template-6.26.0.tgz#de03e2d16396b069f46dd9fff8521fb1a0e35e02"
   dependencies:
@@ -385,7 +409,7 @@ babel-template@^6.24.1, babel-template@^6.26.0:
     babylon "^6.18.0"
     lodash "^4.17.4"
 
-babel-traverse@^6.24.1, babel-traverse@^6.26.0:
+babel-traverse@^6.24.1, babel-traverse@^6.25.0, babel-traverse@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-traverse/-/babel-traverse-6.26.0.tgz#46a9cbd7edcc62c8e5c064e2d2d8d0f4035766ee"
   dependencies:
@@ -399,7 +423,7 @@ babel-traverse@^6.24.1, babel-traverse@^6.26.0:
     invariant "^2.2.2"
     lodash "^4.17.4"
 
-babel-types@^6.19.0, babel-types@^6.24.1, babel-types@^6.26.0:
+babel-types@^6.19.0, babel-types@^6.24.1, babel-types@^6.25.0, babel-types@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.26.0.tgz#a3b073f94ab49eb6fa55cd65227a334380632497"
   dependencies:
@@ -408,7 +432,7 @@ babel-types@^6.19.0, babel-types@^6.24.1, babel-types@^6.26.0:
     lodash "^4.17.4"
     to-fast-properties "^1.0.3"
 
-babylon@^6.18.0:
+babylon@^6.17.2, babylon@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
 
@@ -460,7 +484,7 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-convert-source-map@^1.5.0:
+convert-source-map@^1.1.0, convert-source-map@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.5.0.tgz#9acd70851c6d5dfdd93d9282e5edf94a03ff46b5"
 
@@ -478,7 +502,7 @@ debug@3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@^2.6.8:
+debug@^2.1.1, debug@^2.6.8:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -603,7 +627,7 @@ jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
 
-json5@^0.5.1:
+json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
@@ -613,7 +637,7 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-lodash@^4.17.4:
+lodash@^4.17.4, lodash@^4.2.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -623,7 +647,7 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0"
 
-minimatch@^3.0.4:
+minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   dependencies:
@@ -738,7 +762,7 @@ source-map-support@^0.4.15:
   dependencies:
     source-map "^0.5.6"
 
-source-map@^0.5.6:
+source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
 
