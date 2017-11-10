@@ -27,8 +27,11 @@ module.exports = class Portfolio {
 	get name() {
 		return `${this.last_name}, ${this.first_name}`;
 	}
-	
-	/* Requires symbols to purchase and allocation of symbols in portfolio */
+
+	/* 
+		Requires symbols to purchase and allocation of symbols in portfolio.
+		This can be improved by running this algo again on the remainder amount, to better achieve said percentages.
+	*/
 	calculatePortfolio(symbols, allocation) {
 		allocation.map(item => {
 			const percentage = parseFloat(item.pct) / 100;

@@ -94,7 +94,8 @@ module.exports = () => {
 
 		const results = filteredData.map((data) => {
 			// average of 26.0745 bi weekly pay periods in a year
-			// assuming annual salary
+			// assuming annual salary, approximate value
+			// does not consider teminated case and odd weekly hours
 			// adding new data to filteredData
 			if (data.salary) {
 				return Object.assign(
