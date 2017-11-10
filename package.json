@@ -15,7 +15,6 @@
   "dependencies": {
     "csv-parse": "^2.0.0",
     "fs-extra": "^4.0.2",
-    "promise-sequence": "^0.2.3",
     "underscore": "^1.8.3"
   }
 }

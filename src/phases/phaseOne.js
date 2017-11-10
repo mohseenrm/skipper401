@@ -20,6 +20,7 @@ const censusPath = path.join(
 	'census_1498456690.csv',
 );
 
+/* Organize parsed data */
 const filterParsedData = parsedData => {
 	const [ payrollData, censusData ] = parsedData;
 	let filteredData = [];
@@ -59,8 +60,9 @@ const filterParsedData = parsedData => {
 	return filteredData;
 };
 
-const calculateContribution = (biWeeklyPay, percentage) => (biWeeklyPay * percentage) / 100; 
+const calculateContribution = (biWeeklyPay, percentage) => (biWeeklyPay * percentage) / 100;
 
+/* Pretty print results */
 const printPhaseOneResults = phaseOneResults => {
 	console.log('== Phase One Results =======================================\n');
 	phaseOneResults.map(result => {
@@ -69,6 +71,7 @@ const printPhaseOneResults = phaseOneResults => {
 	console.log('');
 };
 
+/* Main Phase One Script */
 module.exports = () => {
 	// reading payroll and census file
 	const promises = [];

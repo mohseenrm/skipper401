@@ -1,6 +1,3 @@
-const path = require('path');
-const sequence = require('promise-sequence');
-
 const {
 	phaseOne,
 	phaseTwo,

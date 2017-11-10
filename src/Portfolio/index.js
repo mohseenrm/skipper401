@@ -1,3 +1,6 @@
+/* 
+	Portfolio class for definig behaviour of portfolio, given asset allocation and symbol prices 
+*/
 module.exports = class Portfolio {
 	constructor(
 		first_name,
@@ -6,10 +9,14 @@ module.exports = class Portfolio {
 		employee_contribution = 0,
 		employer_contribution = 0,
 	) {
+		// metadata
 		this.first_name = first_name;
 		this.last_name = last_name;
+		// determines allocation of symbols using risk
 		this._risk_setting = risk_setting;
+		// total contribution towards fund
 		this._contribution = employee_contribution + employer_contribution;
+		// internal portfolio structure
 		this._portfolio = {
 			assets: [],
 			available: this._contribution,
@@ -17,17 +24,11 @@ module.exports = class Portfolio {
 		};
 	}
 
-	get contribution() {
-		return this._contribution;
-	}
-
 	get name() {
 		return `${this.last_name}, ${this.first_name}`;
 	}
-	// { VFIAX: 10.42, VTSAX: 20.21, VGSLX: 1.19, VTIAX: 2.21 }
-	/* [ { symbol: 'VGSLX', pct: 40 },
-	{ symbol: 'VTSAX', pct: 30 },
-	{ symbol: 'VFIAX', pct: 30 } ] */
+	
+	/* Requires symbols to purchase and allocation of symbols in portfolio */
 	calculatePortfolio(symbols, allocation) {
 		allocation.map(item => {
 			const percentage = parseFloat(item.pct) / 100;
@@ -37,7 +38,7 @@ module.exports = class Portfolio {
 			// check quantity
 			const quantity = Math.floor(funds / symbols[symbol]);
 			const price = quantity * symbols[symbol];
-
+			// if purchasing power > 0, purchase symbols
 			if(quantity > 0 && (this._portfolio.available - price) > 0) {
 				this._portfolio.available -= price;
 				this._portfolio.value += price;
@@ -48,7 +49,7 @@ module.exports = class Portfolio {
 				});
 			}
 		});
-
+		// added this fella for chaining of operations
 		return this;
 	}
 
@@ -56,15 +57,18 @@ module.exports = class Portfolio {
 		return this;
 	}
 
+	/* Print portfolio */
 	get pretty() {
 		let index = 1;
 		let output = `\n${this.name} | Portfolio\n`;
 		
 		output += 'No | Symbol | Quantity | Price | Percentage\n';
 
-		this._portfolio.assets.map(asset => {
-			output += `${index++} | ${asset.symbol} | ${asset.quantity} | $${asset.price} | ${parseFloat((asset.price / this._contribution) * 100).toFixed(2)}\n`;
-		});
+		if(this._portfolio.assets.length > 0) {
+			this._portfolio.assets.map(asset => {
+				output += `${index++} | ${asset.symbol} | ${asset.quantity} | $${asset.price} | ${parseFloat((asset.price / this._contribution) * 100).toFixed(2)}\n`;
+			});
+		}
 
 		output += `Total Value: $${this._portfolio.value} | Total funds available: $${this._portfolio.available}\n`;
 

@@ -1,9 +1,4 @@
-module.exports = (data) => {
-	const phaseTwoResults = calculateEmployerMatch(data);
-	printPhaseTwoResults(phaseTwoResults);
-	return phaseTwoResults;
-};
-
+/* Compute employer contribution */
 const calculateEmployerMatch = dataset => {
 	return dataset.map(data => {
 		const matchPercentage = parseFloat(data.match_rate_pct) / 100;
@@ -24,4 +19,11 @@ const printPhaseTwoResults = data => {
 	});
 	console.log(`Total contribution by employer: $${total}`);
 	console.log('');
+};
+
+/* Main Phase 2 Script, recieve data from previous phase */
+module.exports = (data) => {
+	const phaseTwoResults = calculateEmployerMatch(data);
+	printPhaseTwoResults(phaseTwoResults);
+	return phaseTwoResults;
 };
