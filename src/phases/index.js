@@ -1,5 +1,5 @@
 // provide easier api for app
-const phaseOne = require('./phaseOne');
+const { phaseOne } = require('./phaseOne');
 const phaseTwo = require('./phaseTwo');
 const phaseThree = require('./phaseThree');
 

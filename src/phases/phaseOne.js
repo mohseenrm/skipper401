@@ -72,7 +72,7 @@ const printPhaseOneResults = phaseOneResults => {
 };
 
 /* Main Phase One Script */
-module.exports = () => {
+const phaseOne = () => {
 	// reading payroll and census file
 	const promises = [];
 	/* 
@@ -128,3 +128,8 @@ module.exports = () => {
 		return results;
 	});
 };
+
+module.exports = {
+	calculateContribution,
+	phaseOne,
+}
