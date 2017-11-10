@@ -17,7 +17,7 @@ const calculateEmployerMatch = dataset => {
 
 const printPhaseTwoResults = data => {
 	let total = 0;
-	console.log('== Phase Two Results =======================================');
+	console.log('== Phase Two Results =======================================\n');
 	data.map(result => {
 		console.log(`${result.last_name}, ${result.first_name} | employer contribution: $${result.employer_contribution}`);
 		total += result.employer_contribution;

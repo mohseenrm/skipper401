@@ -2,6 +2,7 @@ const _ = require('underscore');
 const path = require('path');
 
 const { parseCsv } = require('../utils');
+const Portfolio = require('../Portfolio');
 /* File paths, better way would be config file with directory data */
 const symbolPricePath = path.join(
 	__dirname,
@@ -62,11 +63,19 @@ const sortRiskData = data => {
 	return sortedRiskData;
 };
 
+const printPhaseThreeResults = phaseThreeResults => {
+	let output = '';
+	console.log('== Phase Three Results =======================================');
+	phaseThreeResults.map(result => {
+		output += result.portfolio.pretty;
+	});
+	console.log(output);
+};
+
 /* Phase Three Script, data is being piped from previous phases */
 module.exports = (data) => {
-	console.log('phase three');
 	let promises = [];
-	console.log(data);
+
 	promises.push(
 		parseCsv(symbolPricePath)
 			.catch(err => console.log(err))
@@ -83,7 +92,35 @@ module.exports = (data) => {
 		const filteredSymbolData = filterSymbolData(symbolData);
 		const sortedRiskData = sortRiskData(filteredRiskData);
 
-		console.log(filteredSymbolData);
-		console.log(sortedRiskData);
+		const portfolioData = data.map(record => {
+			return Object.assign(
+				{},
+				record,
+				{ 
+					portfolio: new Portfolio(
+						record.first_name,
+						record.last_name,
+						record.risk_setting,
+						record.employee_contribution,
+						record.employer_contribution
+					)
+				}
+			);
+		});
+		
+		const phaseThreeResults = portfolioData.map(record => {
+			return Object.assign(
+				{},
+				record,
+				{
+					portfolio: record.portfolio.calculatePortfolio(
+						filteredSymbolData,
+						sortedRiskData[record.risk_setting]
+					).retrieve
+				}
+			);
+		});
+
+		printPhaseThreeResults(phaseThreeResults);
 	});
 };
