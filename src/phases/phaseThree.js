@@ -26,11 +26,13 @@ const filterSymbolData = parsedData => {
 	});
 	return symbolData;
 };
+
 /* Simple util to generate risk object */
 const generateRiskObject = (symbol, pct) => ({
 	symbol,
 	pct: parseFloat(pct),
 });
+
 /* Organize and filter parsed data */
 const filterRiskData = parsedData => {
 	let riskData = {};
@@ -49,15 +51,17 @@ const filterRiskData = parsedData => {
 
 	return riskData;
 };
+
 /* Sorting data with highest weights first */
 const sortRiskData = data => {
 	let sortedRiskData = {};
-	// sort on object key percentage
+	/* sort on object key percentage, the library does not have a descending attribute :( */
 	Object.keys(data).map(key => {
 		sortedRiskData[key] = _.sortBy(data[key], 'pct').reverse();
 	});
 	return sortedRiskData;
 };
+
 /* Phase Three Script, data is being piped from previous phases */
 module.exports = (data) => {
 	console.log('phase three');
@@ -74,12 +78,11 @@ module.exports = (data) => {
 	return Promise.all(promises).then(parsedData => {
 		const [ symbolData, riskData ] = parsedData;
 
-		const filteredSymbolData = filterSymbolData(symbolData);
 		const filteredRiskData = filterRiskData(riskData);
+		const filteredSymbolData = filterSymbolData(symbolData);
+		const sortedRiskData = sortRiskData(filteredRiskData);
 
 		console.log(filteredSymbolData);
-
-		const sortedRiskData = sortRiskData(filteredRiskData);
 		console.log(sortedRiskData);
 	});
 };

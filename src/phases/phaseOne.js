@@ -72,7 +72,9 @@ const printPhaseOneResults = phaseOneResults => {
 module.exports = () => {
 	// reading payroll and census file
 	const promises = [];
-
+	/* 
+		Using Async file reads to queue on JS event loop, sync ops take longer, better way would be to use file streaming
+	*/
 	promises.push(
 		parseCsv(payrollPath)
 			.catch(err => console.log(err))
