@@ -66,6 +66,7 @@ const sortRiskData = data => {
 module.exports = (data) => {
 	console.log('phase three');
 	let promises = [];
+	console.log(data);
 	promises.push(
 		parseCsv(symbolPricePath)
 			.catch(err => console.log(err))
