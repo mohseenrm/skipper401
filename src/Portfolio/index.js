@@ -24,6 +24,14 @@ module.exports = class Portfolio {
 		};
 	}
 
+	get contribution() {
+		return this._contribution;
+	}
+
+	get portfolio() {
+		return this._portfolio;
+	}
+
 	get name() {
 		return `${this.last_name}, ${this.first_name}`;
 	}

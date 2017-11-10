@@ -101,7 +101,6 @@ const phaseThree = (data) => {
 		/* Filter, Sort and Organize data for calculating portfolio */
 		const filteredRiskData = filterRiskData(riskData);
 		const filteredSymbolData = filterSymbolData(symbolData);
-		console.log(filteredRiskData);
 		const sortedRiskData = sortRiskData(filteredRiskData);
 
 		const portfolioData = data.map(record => {

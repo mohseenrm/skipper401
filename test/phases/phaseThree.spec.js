@@ -31,12 +31,12 @@ describe('Phase Three', () => {
 		};
 
 		const expectedResults = { 
-			'1': [ 
+			'1': [
 				{ symbol: 'VGSLX', pct: 40 },
 				{ symbol: 'VTSAX', pct: 30 },
 				{ symbol: 'VFIAX', pct: 30 },
 			],
-			'2': [ 
+			'2': [
 				{ symbol: 'VTSAX', pct: 50 },
 				{ symbol: 'VGSLX', pct: 30 }, 
 				{ symbol: 'VFIAX', pct: 20 },
@@ -47,7 +47,7 @@ describe('Phase Three', () => {
 				{ symbol: 'VTSAX', pct: 10 },
 				{ symbol: 'VFIAX', pct: 10 },
 			],
-			'4': [ 
+			'4': [
 				{ symbol: 'VGSLX', pct: 70 },
 				{ symbol: 'VTIAX', pct: 10 },
 				{ symbol: 'VFIAX', pct: 7 },
